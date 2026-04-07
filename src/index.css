@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 font-sans leading-normal m-0 p-0;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold leading-tight;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-primary-700 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-primary-500 focus-visible:ring-offset-2
+           transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-neutral-200 text-neutral-800 px-4 py-2 rounded-lg font-medium
+           hover:bg-neutral-300 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-neutral-400 focus-visible:ring-offset-2
+           transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-error-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-error-700 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-error-500 focus-visible:ring-offset-2
+           transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-neutral-300 rounded-lg
+           bg-white text-neutral-900 placeholder-neutral-400
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           transition-colors;
+  }
+
+  .input-field[aria-invalid="true"] {
+    @apply border-error-500 focus:ring-error-500 focus:border-error-500;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-card p-6;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.neutral.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.neutral.300');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.neutral.400');
+  }
+}
